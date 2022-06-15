@@ -1,17 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import TrangChu from "./pages/TrangChu/TrangChu";
+import HomeTemplate from "./templates/HomeTemplate";
 function App() {
 	return (
 		<div className='App'>
 			<BrowserRouter>
-				<Switch>
-					<Route
-						path={""}
-						component={(prop: any) => {
-							return <div className='container'>123</div>;
-						}}
-					/>
-				</Switch>
+				<HomeTemplate path={"/"} component={TrangChu} />
 			</BrowserRouter>
 		</div>
 	);
