@@ -1,23 +1,25 @@
-import React, { useEffect } from "react";
-
-import { TCBanner } from "../Components/TChu/TCBanner";
-import { TCDanhSachPhim } from "../Components/TChu/TCDanhSachPhim";
-import { TCHeThongRap } from "../Components/TChu/TCHeThongRap";
+import { TCCarousel } from "../Components/TChu/TCCarousel";
+import { TCQuanLyRap } from "../Components/TChu/TCQuanLyRap";
+import { TCQuanLyPhim } from "../Components/TChu/TCQuanLyPhim";
 
 type Props = {};
 
 export default function TrangChu({}: Props) {
 	return (
 		<div className='container-fluid p-0'>
-			<section className='tc_banner'>
+			<section className='tc_carousel'>
 				<div className='container-fluid p-0'>
-					<TCBanner />
+					<TCCarousel />
 				</div>
 			</section>
 			<section className='tc_danhsachphim'>
 				<div className='container pt-5 pb-5'>
-					<TCDanhSachPhim />
-					<TCHeThongRap />
+					<TCQuanLyPhim />
+				</div>
+			</section>
+			<section className='tc_cumrap'>
+				<div className='container pt-5 pb-5'>
+					<TCQuanLyRap />
 				</div>
 			</section>
 		</div>

@@ -1,9 +1,14 @@
+import CarouselReducer from "./reducers/TrangChu/CarouselReducer";
 import { configureStore } from "@reduxjs/toolkit";
-import trangChuReducer from "./reducers/trangChuReducer";
+import QuanLyPhimReducer from "./reducers/TrangChu/QuanLyPhimReducer";
+import QuanLyRapReducer from "./reducers/TrangChu/QuanLyRapReducer";
 
 export const store = configureStore({
 	reducer: {
-		trangChuReducer: trangChuReducer,
+		CarouselReducer,
+		QuanLyPhimReducer,
+		QuanLyRapReducer,
 	},
 });
 export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
