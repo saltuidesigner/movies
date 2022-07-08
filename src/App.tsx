@@ -1,13 +1,27 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { Router, Switch } from "react-router-dom";
 import TrangChu from "./pages/TrangChu/TrangChu";
-import HomeTemplate from "./templates/HomeTemplate";
+import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
+import { Contact } from "./pages/Contact/Contact";
+import { News } from "./pages/News/News";
+import "antd/dist/antd.css";
+import TabCheckout from "./pages/Checkout/Checkout";
+import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
+import "./App.css";
+export const history = createBrowserHistory();
+
 function App() {
 	return (
 		<div className='App'>
-			<BrowserRouter>
-				<HomeTemplate path={"/"} component={TrangChu} />
-			</BrowserRouter>
+			<Router history={history}>
+				<Switch>
+					<HomeTemplate path={"/contact"} Component={Contact} />
+					<HomeTemplate path={"/news"} Component={News} />
+					<CheckoutTemplate path={"/checkout/:id"} Component={TabCheckout} />
+					<HomeTemplate path={"/"} Component={TrangChu} />
+				</Switch>
+			</Router>
 		</div>
 	);
 }

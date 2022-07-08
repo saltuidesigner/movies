@@ -5,9 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux/configStore";
 import { Provider } from "react-redux";
+import "./input.css";
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
 );
+
 root.render(
 	<Provider store={store}>
 		<App />
