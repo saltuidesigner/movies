@@ -1,10 +1,20 @@
 import React from 'react'
 import {useFormik} from 'formik'
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { RootState } from '../../redux/configStore';
 
-type Props = {}
+type Props = {
+  
+}
 
-export default function Login({ }: Props) {
+export default function Login(props: Props) {
+
+  const dispatch = useDispatch();
+
+  const {userLogin} = useSelector((state:RootState)=>state.QuanLyNguoiDungReducer);
+  console.log('userLogin',userLogin);
 
   const formik = useFormik({
     initialValues: {
@@ -12,6 +22,10 @@ export default function Login({ }: Props) {
       matKhau: '',
     },
     onSubmit: values => {
+
+      const action:any = dangNhapAction(values);
+      dispatch(action);
+
       console.log('values',values);
     },
   });
@@ -26,11 +40,11 @@ export default function Login({ }: Props) {
           <div style={{ width: '23rem' }}>
             <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: 1 }}>CYBERLEARN</h3>
             <div className="form-outline mb-4">
-              <input name='taiKhoan' onChange={formik.handleChange} type="Nhập vào tài khoản" id="form2Example18" className="form-control form-control-lg" />
+              <input name='taiKhoan' onChange={formik.handleChange} type="account" id="form2Example18" className="form-control form-control-lg" />
               <label className="form-label" htmlFor="form2Example18">Tài khoản</label>
             </div>
             <div className="form-outline mb-4">
-              <input name='matKhau' onChange={formik.handleChange} type="Nhập vào password" id="form2Example28" className="form-control form-control-lg" />
+              <input name='matKhau' onChange={formik.handleChange} type="password" id="form2Example28" className="form-control form-control-lg" />
               <label className="form-label" htmlFor="form2Example28">Mật khẩu</label>
             </div>
             <div className="pt-1 mb-4">
