@@ -114,12 +114,12 @@ const Checkout = (props: Props) => {
 				</div>
 				<div className='p-0 col-4 d-flex flex-column'>
 					<div className='tdvContent'>
-						<h3 className='text-center'>
+						<h1 className='text-center text-2xl'>
 							{danhSachGheDangDat.reduce((tongTien, ghe, index) => {
 								return (tongTien += ghe.giaVe);
-							}, 0)}{" "}
+							}, 0)}
 							d
-						</h3>
+						</h1>
 						<hr />
 						<h3>{thongTinPhim.tenPhim}</h3>
 						<p>
@@ -165,7 +165,7 @@ const Checkout = (props: Props) => {
 								dispatch(postQuanLyDatVeApi(thongTinDatVe));
 							}}
 							style={{ width: "100%", cursor: "pointer" }}
-							className='btn btn-primary p-2 fs-5 rounded-0'>
+							className='btn bg-green-300 p-2 fs-5 rounded-0 text-white'>
 							Dat Ve
 						</button>
 					</div>
@@ -200,7 +200,7 @@ function KetQuaDatVe(props) {
 			<section className='text-gray-600 body-font'>
 				<div className='container px-5 py-24 mx-auto'>
 					<div className='flex flex-col text-center w-full mb-20'>
-						<h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600'>
+						<h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-green-600'>
 							Lich Su Dat Ve Khach Hang
 						</h1>
 						<p className='lg:w-2/3 mx-auto leading-relaxed text-base'>
