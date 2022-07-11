@@ -20,7 +20,7 @@ export const dangNhapAction = (thongTinDangNhap: any) => {
 			history.goBack();
 			console.log("result", result);
 		} catch (error: any) {
-			console.log("error", error.response.data);
+			console.log("error", error.response);
 		}
 	};
 };
@@ -28,7 +28,7 @@ export const layThongTinNguoiDungAction = () => {
 	return async (dispatch: any) => {
 		try {
 			const result = await QuanLyNguoiDungService.layThongTinNguoiDung();
-			console.log(result.data);
+			console.log(result);
 			if (result.data.status === 200) {
 				dispatch({
 					type: SET_THONG_TIN_NGUOI_DUNG,
@@ -36,7 +36,7 @@ export const layThongTinNguoiDungAction = () => {
 				});
 			}
 		} catch (error: any) {
-			console.log("error", error.response.data);
+			console.log("error", error.response);
 		}
 	};
 };

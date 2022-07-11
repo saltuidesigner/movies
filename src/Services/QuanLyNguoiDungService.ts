@@ -1,5 +1,5 @@
 import { baseService } from "./baseService";
-import { GROUPID } from "../utility/settings/config";
+
 export class QuanLyNguoiDungService extends baseService {
 	static dangNhap: any;
 	static layThongTinNguoiDung: any;

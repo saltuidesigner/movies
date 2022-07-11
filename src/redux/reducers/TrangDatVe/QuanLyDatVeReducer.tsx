@@ -58,8 +58,8 @@ export const postQuanLyDatVeApi = createAsyncThunk(
 	"datve/postQuanLyDatVeApi",
 	async (thongTinDatVe: ThongTinDatVe) => {
 		try {
-			let postQuanLyDatVeApiApiObj = new baseService();
-			const result = await postQuanLyDatVeApiApiObj.post(
+			let postQuanLyDatVeApiObj = new baseService();
+			const result = await postQuanLyDatVeApiObj.post(
 				`/api/QuanLyDatVe/DatVe`,
 				thongTinDatVe
 			);
