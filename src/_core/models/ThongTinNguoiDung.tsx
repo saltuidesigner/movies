@@ -1,7 +1,7 @@
 import { Ghe } from "./ThongTinPhongVe";
 
 export class ThongTinNguoiDung {
-	thongTinNguoiDung = new ThongTinNguoiDungObject();
+	nguoiDung = new ThongTinNguoiDungObject();
 	thongTinDatVe: ThongTinDatVe[] = [];
 }
 export class ThongTinNguoiDungObject {

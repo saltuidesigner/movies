@@ -16,7 +16,7 @@ export const TCQuanLyPhim = (props: Props) => {
 		return arrFilm.map((item, index) => {
 			return (
 				<div className='col-3 p-2' key={index}>
-					<div className='card' style={{ height: "450px" }}>
+					<div className='card' style={{ height: "500px" }}>
 						<img
 							style={{
 								objectFit: "cover",
@@ -29,8 +29,9 @@ export const TCQuanLyPhim = (props: Props) => {
 							alt='...'
 						/>
 						<div className='card-body'>
-							<p className='card-text'>{item.tenPhim}</p>
+							<p className='card-text text-xl'>{item.tenPhim}</p>
 						</div>
+						<button className='bg-green-400 text-white p-2'>DAT VE</button>
 					</div>
 				</div>
 			);
