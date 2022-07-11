@@ -4,7 +4,7 @@ import QuanLyPhimReducer from "./reducers/TrangChu/QuanLyPhimReducer";
 import QuanLyRapReducer from "./reducers/TrangChu/QuanLyRapReducer";
 import QuanLyDatVeReducer from "./reducers/TrangDatVe/QuanLyDatVeReducer";
 import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
-
+import { getDefaultMiddleware } from "@reduxjs/toolkit";
 export const store = configureStore({
 	reducer: {
 		CarouselReducer,
@@ -13,6 +13,10 @@ export const store = configureStore({
 		QuanLyDatVeReducer,
 		QuanLyNguoiDungReducer,
 	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

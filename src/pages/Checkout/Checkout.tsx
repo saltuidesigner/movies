@@ -12,14 +12,17 @@ import {
 } from "../../redux/reducers/TrangDatVe/QuanLyDatVeReducer";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
+import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungAction";
 type Props = {
 	match: any;
 };
 const Checkout = (props: Props) => {
+	const { userLogin } = useSelector(
+		(state: RootState) => state.QuanLyNguoiDungReducer
+	);
 	const { chiTietPhongVe, danhSachGheDangDat } = useSelector(
 		(state: RootState) => state.QuanLyDatVeReducer
 	);
-	console.log(danhSachGheDangDat);
 	const { danhSachGhe, thongTinPhim } = chiTietPhongVe;
 
 	const dispatch = useDispatch<AppDispatch>();
@@ -27,7 +30,6 @@ const Checkout = (props: Props) => {
 		dispatch(fetchQuanLyDatVeApi(props.match.params.id));
 	}, []);
 	const addGhe = (ghe) => {
-		console.log(ghe);
 		dispatch(datGhe(ghe));
 	};
 	//renderSEAT
@@ -43,10 +45,10 @@ const Checkout = (props: Props) => {
 				classGheDangDat = "gheDangDat";
 			}
 
-			// let classGheDaDuocDat = ''
-			// if(userLogin.taiKhoan===ghe.taiKhoanNguoiDat){
-			// 	classGheDangDat = 'gheDaDuocDat'
-			// }
+			let classGheDaDuocDat = "";
+			if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
+				classGheDaDuocDat = "gheDaDuocDat";
+			}
 
 			return (
 				<Fragment key={index}>
@@ -57,6 +59,7 @@ const Checkout = (props: Props) => {
 						disabled={ghe.daDat}
 						className={`ghe ${classGheVip} ${classGheDaDat}
 						${classGheDangDat}
+						${classGheDaDuocDat}
 						`}
 						key={index}>
 						{ghe.daDat ? <i className='fa-solid fa-xmark'></i> : ghe.stt}
@@ -114,12 +117,14 @@ const Checkout = (props: Props) => {
 				</div>
 				<div className='p-0 col-4 d-flex flex-column'>
 					<div className='tdvContent'>
-						<h1 className='text-center text-2xl'>
-							{danhSachGheDangDat.reduce((tongTien, ghe, index) => {
-								return (tongTien += ghe.giaVe);
-							}, 0)}
+						<h3 className='text-center text-green-400 text-4xl'>
+							{danhSachGheDangDat
+								.reduce((tongTien, ghe, index) => {
+									return (tongTien += ghe.giaVe);
+								}, 0)
+								.toLocaleString()}
 							d
-						</h1>
+						</h3>
 						<hr />
 						<h3>{thongTinPhim.tenPhim}</h3>
 						<p>
@@ -161,12 +166,12 @@ const Checkout = (props: Props) => {
 								const thongTinDatVe = new ThongTinDatVe();
 								thongTinDatVe.maLichChieu = props.match.params.id;
 								thongTinDatVe.danhSachVe = danhSachGheDangDat;
-								console.log("thongtindatve", thongTinDatVe);
+
 								dispatch(postQuanLyDatVeApi(thongTinDatVe));
 							}}
 							style={{ width: "100%", cursor: "pointer" }}
-							className='btn bg-green-300 p-2 fs-5 rounded-0 text-white'>
-							Dat Ve
+							className='btn bg-green-500 text-xl text-white p-2 fs-5 rounded-0'>
+							DAT VE
 						</button>
 					</div>
 				</div>
@@ -194,13 +199,26 @@ const TabCheckout: React.FC = (props: Props) => (
 	</div>
 );
 export default TabCheckout;
+
 function KetQuaDatVe(props) {
+	const { thongTinNguoiDung } = useSelector((state: RootState) => {
+		return state.QuanLyNguoiDungReducer;
+	});
+	console.log("thongTinNguoiDungDatVe", thongTinNguoiDung);
+	const dispatch = useDispatch<AppDispatch>();
+	const { userLogin } = useSelector(
+		(state: RootState) => state.QuanLyNguoiDungReducer
+	);
+	useEffect(() => {
+		const action = layThongTinNguoiDungAction();
+		dispatch(action);
+	}, []);
 	return (
 		<div>
 			<section className='text-gray-600 body-font'>
 				<div className='container px-5 py-24 mx-auto'>
 					<div className='flex flex-col text-center w-full mb-20'>
-						<h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-green-600'>
+						<h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600'>
 							Lich Su Dat Ve Khach Hang
 						</h1>
 						<p className='lg:w-2/3 mx-auto leading-relaxed text-base'>

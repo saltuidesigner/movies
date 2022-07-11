@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { DOMAIN, http } from "../../../utility/setting";
+import { baseService } from "../../../Services/baseService";
 
 const initialState = {
 	arrFilm: [],
@@ -23,8 +23,9 @@ export default filmSlice.reducer;
 //THUNK
 export const fetchFilmApi = createAsyncThunk("film/fetchFilmApi", async () => {
 	try {
-		const result = await http.get(
-			`${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`
+		let fetchFilmApiObj = new baseService();
+		const result = await fetchFilmApiObj.get(
+			`/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01`
 		);
 		return result.data.content;
 	} catch (error) {

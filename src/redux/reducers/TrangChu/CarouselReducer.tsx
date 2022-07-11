@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { DOMAIN, http } from "../../../utility/setting";
+import { baseService } from "../../../Services/baseService";
 
 const initialState = {
 	arrCarousel: [],
@@ -25,8 +25,9 @@ export const fetchCarouselApi = createAsyncThunk(
 	"carousel/fetchCarouselApi",
 	async () => {
 		try {
-			const result = await http.get(
-				`${DOMAIN}/api/QuanLyPhim/LayDanhSachBanner`
+			let fetchCarouselApiObj = new baseService();
+			const result = await fetchCarouselApiObj.get(
+				`/api/QuanLyPhim/LayDanhSachBanner`
 			);
 			return result.data.content;
 		} catch (error) {
