@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../redux/configStore";
 import { fetchFilmApi } from "../../../redux/reducers/TrangChu/QuanLyPhimReducer";
 type Props = {};
@@ -31,7 +32,9 @@ export const TCQuanLyPhim = (props: Props) => {
 						<div className='card-body'>
 							<p className='card-text text-xl'>{item.tenPhim}</p>
 						</div>
-						<button className='bg-green-400 text-white p-2'>DAT VE</button>
+						<div className='bg-green-400 text-white p-2 text-center cursor-pointer'>
+						<NavLink to={`/detail/${item.maPhim}`} >ĐẶT VÉ</NavLink>
+						</div>
 					</div>
 				</div>
 			);

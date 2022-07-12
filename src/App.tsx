@@ -23,6 +23,7 @@ function App() {
 			<BrowserRouter>
 			<Router history={history}>
 				<Switch>
+					<HomeTemplate path={"/home"} Component={TrangChu} />
 					<HomeTemplate path={"/contact"} Component={Contact} />
 					<HomeTemplate path={"/news"} Component={News} />
 					<HomeTemplate path={"/detail/:id"} Component={Detail} />
