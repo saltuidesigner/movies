@@ -1,0 +1,3 @@
+Phân công công việc : 
+Trần Kiến Quân (Login, Detail, Admin)
+Phạm Vy Vy (Trang chủ, Checkout)
