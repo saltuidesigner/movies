@@ -12,6 +12,7 @@ import "./App.css";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Detail from "./pages/detail/Detail";
 
 
 export const history = createBrowserHistory();
@@ -24,10 +25,23 @@ function App() {
 				<Switch>
 					<HomeTemplate path={"/contact"} Component={Contact} />
 					<HomeTemplate path={"/news"} Component={News} />
+					<HomeTemplate path={"/detail/:id"} Component={Detail} />
+
+
+
+
+
+
 					<CheckoutTemplate path={"/checkout/:id"} Component={TabCheckout} />
-					<HomeTemplate path={"/"} Component={TrangChu} />
+					
+
+
+
 					<UserTemplate path={'/login'} Component={Login} />
-					<Route path={'/register'} component={Register} />
+					<UserTemplate path={'/register'} Component={Register} />
+
+
+					<HomeTemplate path={"/"} Component={TrangChu} />
 				</Switch>
 			</Router>
 			</BrowserRouter>

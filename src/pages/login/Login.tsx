@@ -10,7 +10,7 @@ type Props = {
   action:any;
 }
 
-export default function Login({}: Props) {
+export default function Login(props: Props) {
 
   const dispatch = useDispatch();
 

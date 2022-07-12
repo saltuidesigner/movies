@@ -4,6 +4,7 @@ import {
 	DANG_NHAP_ACTION,
 	SET_THONG_TIN_NGUOI_DUNG,
 } from "./types/QuanLyNguoiDungType";
+import { baseService } from "../../Services/baseService";
 
 export const dangNhapAction = (thongTinDangNhap: any) => {
 	return async (dispatch: any) => {
