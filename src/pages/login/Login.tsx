@@ -6,7 +6,8 @@ import { dangNhapAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import { RootState } from '../../redux/configStore';
 
 type Props = {
-  
+  dispatch:any;
+  action:any;
 }
 
 export default function Login(props: Props) {
@@ -48,7 +49,7 @@ export default function Login(props: Props) {
               <label className="form-label" htmlFor="form2Example28">Mật khẩu</label>
             </div>
             <div className="pt-1 mb-4">
-              <button className="btn btn-info btn-lg btn-block" type="button">Đăng nhập</button>
+              <button className="btn btn-info btn-lg btn-block" type="submit">Đăng nhập</button>
             </div>
             <p className="small mb-5 pb-lg-2"><a className="text-muted" href="#!">Quên mật khẩu?</a></p>
             <p>Bạn chưa có tài khoản? <NavLink to={'register'} className="link-info">Đăng ký</NavLink></p>

@@ -7,6 +7,7 @@ type Props = {};
 export default function TrangChu({}: Props) {
 	return (
 		<div className='container-fluid p-0'>
+			
 			<section className='tc_carousel'>
 				<div className='container-fluid p-0'>
 					<TCCarousel />

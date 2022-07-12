@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { AppDispatch, RootState } from "../../../redux/configStore";
 import {
@@ -37,8 +38,7 @@ export const MultipleRows = (props: Props) => {
 	const { dangChieu, sapChieu } = useSelector(
 		(state: RootState) => state.QuanLyPhimReducer
 	);
-	console.log("dagChieu", dangChieu);
-	console.log("sapChieu", sapChieu);
+
 	let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
 	let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
 	const settings = {
@@ -78,7 +78,11 @@ export const MultipleRows = (props: Props) => {
 									: item.tenPhim}
 							</p>
 						</div>
-						<button className='bg-green-400 text-white p-2'>ĐẶT VÉ</button>
+						<Link
+							to={`/detail/${item.maPhim}`}
+							className='text-center bg-green-400 text-white p-2'>
+							ĐẶT VÉ
+						</Link>
 					</div>
 				</div>
 			);
