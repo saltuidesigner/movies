@@ -3,20 +3,41 @@ import { baseService } from "../../../Services/baseService";
 
 const initialState = {
 	arrFilm: [],
+	dangChieu: true,
+	sapChieu: false,
+	arrFilmDefault: [],
 };
 
 export const filmSlice = createSlice({
 	name: "film",
 	initialState,
-	reducers: {},
+	reducers: {
+		phimDangChieu: (state) => {
+			state.dangChieu = !state.dangChieu;
+			state.arrFilm = state.arrFilmDefault.filter((item) => {
+				return item.dangChieu === state.dangChieu;
+			});
+		},
+		phimSapChieu: (state) => {
+			state.sapChieu = !state.sapChieu;
+			state.arrFilm = state.arrFilmDefault.filter((item) => {
+				return item.sapChieu === state.sapChieu;
+			});
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchFilmApi.fulfilled, (state, action) => {
-			state.arrFilm = [...action.payload];
+			state.arrFilm = action.payload.filter((item) => {
+				return (
+					item.dangChieu === state.dangChieu && item.sapChieu === state.sapChieu
+				);
+			});
+			state.arrFilmDefault = state.arrFilm;
 		});
 	},
 });
 
-export const {} = filmSlice.actions;
+export const { phimDangChieu, phimSapChieu } = filmSlice.actions;
 
 export default filmSlice.reducer;
 

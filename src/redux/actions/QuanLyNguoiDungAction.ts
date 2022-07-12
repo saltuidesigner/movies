@@ -36,7 +36,7 @@ export const layThongTinNguoiDungAction = () => {
 				});
 			}
 		} catch (error: any) {
-			console.log("error", error.response);
+			console.log("error", error.data);
 		}
 	};
 };

@@ -204,7 +204,7 @@ function KetQuaDatVe(props) {
 	const { thongTinNguoiDung } = useSelector((state: RootState) => {
 		return state.QuanLyNguoiDungReducer;
 	});
-	console.log("thongTinNguoiDungDatVe", thongTinNguoiDung);
+	// console.log("thongTinNguoiDungDatVe", thongTinNguoiDung);
 	const dispatch = useDispatch<AppDispatch>();
 	const { userLogin } = useSelector(
 		(state: RootState) => state.QuanLyNguoiDungReducer
@@ -213,6 +213,7 @@ function KetQuaDatVe(props) {
 		const action = layThongTinNguoiDungAction();
 		dispatch(action);
 	}, []);
+	console.log("thongTin");
 	return (
 		<div>
 			<section className='text-gray-600 body-font'>
