@@ -78,7 +78,7 @@ const Checkout = (props: Props) => {
 						className='bg-dark'
 						style={{ width: "80%", height: "15px" }}></div>
 					<div className={`${style["trapezoid"]}`}>
-						<h4 className='text-center'>Man Hinh</h4>
+						<h4 className='text-center'>Màn hình</h4>
 					</div>
 
 					<div className='container mt-3'>{renderSeats()}</div>
@@ -86,11 +86,11 @@ const Checkout = (props: Props) => {
 						<table className='table table-borderless '>
 							<thead>
 								<tr>
-									<th>Ghe chua dat</th>
-									<th>Ghe dang dat</th>
-									<th>Ghe vip</th>
-									<th>Ghe da dat</th>
-									<th>Ghe minh dat</th>
+									<th>Ghế chưa đăt</th>
+									<th>Ghế đang đặt</th>
+									<th>Ghế vip</th>
+									<th>Ghế đã đặt</th>
+									<th>Ghế mình đặt</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -128,10 +128,10 @@ const Checkout = (props: Props) => {
 						<hr />
 						<h3>{thongTinPhim.tenPhim}</h3>
 						<p>
-							Dia diem: {thongTinPhim.tenCumRap}-{thongTinPhim.tenRap}
+							Địa điểm: {thongTinPhim.tenCumRap}-{thongTinPhim.tenRap}
 						</p>
 						<p>
-							Ngay chieu:{thongTinPhim.ngayChieu}-{thongTinPhim.gioChieu}
+							Ngày chiếu:{thongTinPhim.ngayChieu}-{thongTinPhim.gioChieu}
 						</p>
 						<hr />
 						<div className='my-2 '>
@@ -151,13 +151,13 @@ const Checkout = (props: Props) => {
 						<div className='my-2'>
 							<i>Email</i>
 							<br />
-							323232@gmail.com
+							{userLogin.email}
 						</div>
 						<hr />
 						<div className='my-2'>
-							<i>Phone</i>
+							<i>Số Điện Thoại</i>
 							<br />
-							12323131
+							{userLogin.soDT}
 						</div>
 					</div>
 					<div className='mt-5'>
@@ -171,7 +171,7 @@ const Checkout = (props: Props) => {
 							}}
 							style={{ width: "100%", cursor: "pointer" }}
 							className='btn bg-green-500 text-xl text-white p-2 fs-5 rounded-0'>
-							DAT VE
+							ĐẶT VÉ
 						</button>
 					</div>
 				</div>
@@ -189,10 +189,10 @@ const onChange = (key: string) => {
 const TabCheckout: React.FC = (props: Props) => (
 	<div className='p-5'>
 		<Tabs defaultActiveKey='1' onChange={onChange}>
-			<TabPane tab='01 CHON GHE VA THANH TOAN' key='1'>
+			<TabPane tab='01 CHỌN GHẾ VÀ THANH TOÁN' key='1'>
 				<Checkout {...props} />
 			</TabPane>
-			<TabPane tab='02 KET QUA DAT VE	' key='2'>
+			<TabPane tab='02 KẾT QUẢ ĐẶT VÉ	' key='2'>
 				<KetQuaDatVe {...props} />
 			</TabPane>
 		</Tabs>
@@ -220,11 +220,10 @@ function KetQuaDatVe(props) {
 				<div className='container px-5 py-24 mx-auto'>
 					<div className='flex flex-col text-center w-full mb-20'>
 						<h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-green-600'>
-							Lich Su Dat Ve Khach Hang
+							LỊCH SỬ ĐẶT VÉ CỦA KHÁCH HÀNG
 						</h1>
 						<p className='lg:w-2/3 mx-auto leading-relaxed text-base'>
-							Hay xem thong tin dia diem va thoi gian de xem phim vui ve ban
-							nhe!
+							Hãy xem thông tin và địa điểm để xem phim vui nhé các bạn !
 						</p>
 					</div>
 					<div className='flex flex-wrap -m-2'>

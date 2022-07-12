@@ -90,7 +90,7 @@ export const MultipleRows = (props: Props) => {
 	};
 	return (
 		<div>
-			<div>
+			<div style={{ display: "flex", justifyContent: "center" }}>
 				<button
 					onClick={() => {
 						dispatch(phimDangChieu());

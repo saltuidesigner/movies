@@ -25,7 +25,6 @@ export const QuanLyDatVeSlice = createSlice({
 			}
 			state.danhSachGheDangDat = danhSachGheCapNhap;
 		},
-		datVe: (state, action) => {},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchQuanLyDatVeApi.fulfilled, (state, action) => {

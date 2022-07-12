@@ -58,6 +58,34 @@ export const Header = (props: Props) => {
 					</NavLink>
 				</li>
 			</ul>
+			<ul className='nav'>
+				<li className='nav-item'>
+					<NavLink
+						className='nav-link text-white active'
+						activeClassName='active'
+						style={(isActive) => ({
+							color: isActive ? "blue" : "white",
+						})}
+						aria-current='page'
+						href='#'
+						to='/login'>
+						Login
+					</NavLink>
+				</li>
+				<li className='nav-item'>
+					<NavLink
+						activeClassName='active'
+						style={(isActive) => ({
+							color: isActive ? "blue" : "white",
+						})}
+						className='nav-link text-white'
+						aria-current='page'
+						href='#'
+						to='/register'>
+						Register
+					</NavLink>
+				</li>
+			</ul>
 		</header>
 	);
 };
