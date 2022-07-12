@@ -1,5 +1,8 @@
 import Axios from "axios"
 import {DOMAIN,TOKEN} from '../utility/settings/config'
+export const TOKEN_CYBERSOFT =    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyMyIsIkhldEhhblN0cmluZyI6IjIwLzEwLzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY2NjIyNDAwMDAwMCIsIm5iZiI6MTYzODExODgwMCwiZXhwIjoxNjY2MzcxNjAwfQ.hoaq9WsA187Q0NvdBYPZsn8c2CRg_ZE4mQO5_lUyAL4";
+
+
 
 export class baseService {
     //put json về phía backend
@@ -8,7 +11,7 @@ export class baseService {
             url:`${DOMAIN}${url}`,
             method:'PUT',
             data:model,
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //JWT
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //JWT
         }) 
     }
 
@@ -17,7 +20,7 @@ export class baseService {
             url:`${DOMAIN}${url}`,
             method:'POST',
             data:model,
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //JWT
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //JWT
         }) 
     }
 
@@ -26,7 +29,7 @@ export class baseService {
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'GET',
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
         })
     }
 
@@ -34,7 +37,7 @@ export class baseService {
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'DELETE',
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN)} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
         })
     }
 }

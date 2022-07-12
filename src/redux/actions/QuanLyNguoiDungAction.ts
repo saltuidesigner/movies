@@ -1,5 +1,7 @@
 import { QuanLyNguoiDungService } from "../../Services/QuanLyNguoiDungService"
 import { DANG_NHAP_ACTION } from "./types/QuanLyNguoiDungType";
+import { history } from "../../App";
+import { baseService } from "../../Services/baseService";
 
 
 
@@ -13,10 +15,10 @@ export const dangNhapAction = (thongTinDangNhap:any) => {
             const result = await QuanLyNguoiDungService.dangNhap(thongTinDangNhap);
             
 
-            if(result.data.status ===200){
+            if(result.data.statusCode === 200){
                 dispatch({
-                    type:DANG_NHAP_ACTION,
-                    thongDangNhap: result.data.content
+                    type: DANG_NHAP_ACTION,
+                    thongTinDangNhap: result.data.content
                 })
             }
             

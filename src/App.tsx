@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserHistory } from "history";
-import { Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route, BrowserRouter } from "react-router-dom";
 import TrangChu from "./pages/TrangChu/TrangChu";
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 import { Contact } from "./pages/Contact/Contact";
@@ -19,6 +19,7 @@ export const history = createBrowserHistory();
 function App() {
 	return (
 		<div className='App'>
+			<BrowserRouter>
 			<Router history={history}>
 				<Switch>
 					<HomeTemplate path={"/contact"} Component={Contact} />
@@ -29,6 +30,7 @@ function App() {
 					<Route path={'/register'} component={Register} />
 				</Switch>
 			</Router>
+			</BrowserRouter>
 		</div>
 	);
 }
