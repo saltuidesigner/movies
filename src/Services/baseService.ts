@@ -1,43 +1,51 @@
-import Axios from "axios"
-import {DOMAIN,TOKEN} from '../utility/settings/config'
-export const TOKEN_CYBERSOFT =    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyMyIsIkhldEhhblN0cmluZyI6IjIwLzEwLzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY2NjIyNDAwMDAwMCIsIm5iZiI6MTYzODExODgwMCwiZXhwIjoxNjY2MzcxNjAwfQ.hoaq9WsA187Q0NvdBYPZsn8c2CRg_ZE4mQO5_lUyAL4";
-
-
+import Axios from "axios";
+import { DOMAIN, TOKEN, TOKEN_CYBERSOFT } from "../utility/settings/config";
 
 export class baseService {
-    //put json về phía backend
-    put = (url:any,model:any) => {
-        return  Axios({
-            url:`${DOMAIN}${url}`,
-            method:'PUT',
-            data:model,
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //JWT
-        }) 
-    }
+	//put json về phía backend
+	put = (url: any, model: any) => {
+		return Axios({
+			url: `${DOMAIN}${url}`,
+			method: "PUT",
+			data: model,
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem(TOKEN),
+				TokenCybersoft: TOKEN_CYBERSOFT,
+			}, //JWT
+		});
+	};
 
-    post = (url:any,model:any) => {
-        return Axios({
-            url:`${DOMAIN}${url}`,
-            method:'POST',
-            data:model,
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //JWT
-        }) 
-    }
+	post = (url: any, model?: any) => {
+		return Axios({
+			url: `${DOMAIN}${url}`,
+			method: "POST",
+			data: model,
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem(TOKEN),
+				TokenCybersoft: TOKEN_CYBERSOFT,
+			}, //JWT
+		});
+	};
 
+	get = (url: any) => {
+		return Axios({
+			url: `${DOMAIN}${url}`,
+			method: "GET",
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem(TOKEN),
+				TokenCybersoft: TOKEN_CYBERSOFT,
+			}, //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+		});
+	};
 
-    get = (url:any) => {
-        return Axios({
-            url:`${DOMAIN}${url}`,
-            method:'GET',
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
-        })
-    }
-
-    delete = (url:any) => {
-        return Axios({
-            url:`${DOMAIN}${url}`,
-            method:'DELETE',
-            headers: {'Authorization': 'Bearer ' + localStorage.getItem(TOKEN), TokenCybersoft: TOKEN_CYBERSOFT,} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
-        })
-    }
+	delete = (url: any) => {
+		return Axios({
+			url: `${DOMAIN}${url}`,
+			method: "DELETE",
+			headers: {
+				Authorization: "Bearer " + localStorage.getItem(TOKEN),
+				TokenCybersoft: TOKEN_CYBERSOFT,
+			}, //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+		});
+	};
 }

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { DOMAIN, http } from "../../../utility/setting";
+import { baseService } from "../../../Services/baseService";
 
 const initialState = {
 	arrHeThongRap: [],
@@ -25,8 +25,9 @@ export const fetchHeThongRapApi = createAsyncThunk(
 	"rap/fetchHeThongRapApi",
 	async () => {
 		try {
-			const result = await http.get(
-				`${DOMAIN}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`
+			let fetchHeThongRapApiObj = new baseService();
+			const result = await fetchHeThongRapApiObj.get(
+				`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`
 			);
 			return result.data.content;
 		} catch (error) {

@@ -8,7 +8,7 @@ export const Header = (props: Props) => {
 		<header
 			className='d-flex p-2 header align-items-center
 			justify-content-around
-			text-white bg-gray-500 '>
+			text-white bg-dark '>
 			<div className='header-logo'>
 				<NavLink to='/' href='#'>
 					<img

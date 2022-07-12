@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { DOMAIN, http } from "../../../utility/setting";
+import { baseService } from "../../../Services/baseService";
+
 import { ThongTinDatVe } from "../../../_core/models/ThongTinDatVe";
 import { ThongTinLichChieu } from "../../../_core/models/ThongTinPhongVe";
 
@@ -42,8 +43,9 @@ export const fetchQuanLyDatVeApi = createAsyncThunk(
 	"datve/fetchQuanLyDatVeApi",
 	async (maLichChieu: string | number) => {
 		try {
-			const result = await http.get(
-				`${DOMAIN}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`
+			let fetchQuanLyDatVeApiObj = new baseService();
+			const result = await fetchQuanLyDatVeApiObj.get(
+				`/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`
 			);
 			return result.data.content;
 		} catch (error) {
@@ -56,11 +58,11 @@ export const postQuanLyDatVeApi = createAsyncThunk(
 	"datve/postQuanLyDatVeApi",
 	async (thongTinDatVe: ThongTinDatVe) => {
 		try {
-			const result = await http.post(
-				`${DOMAIN}/api/QuanLyDatVe/DatVe`,
+			let postQuanLyDatVeApiObj = new baseService();
+			const result = await postQuanLyDatVeApiObj.post(
+				`/api/QuanLyDatVe/DatVe`,
 				thongTinDatVe
 			);
-			console.log(result.data.content);
 		} catch (error) {
 			console.log(error.msg);
 		}

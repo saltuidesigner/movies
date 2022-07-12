@@ -1,7 +1,6 @@
 import _ from "lodash";
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { RootState } from "../../../../redux/configStore";
 type Props = {};
 
@@ -12,33 +11,22 @@ export const Footer = (props: Props) => {
 	const heThongRapChieu = _.map(arrHeThongRap, (heThongRap) => {
 		return _.pick(heThongRap, ["maHeThongRap", "tenHeThongRap", "logo"]);
 	});
-	console.log("heThongRapChieu", heThongRapChieu);
 
 	return (
 		<div>
-			<footer className='py-6 bg-gray-500 text-white'>
+			<footer className='py-6 bg-dark text-white'>
 				<div className='container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50'>
-					<div style={{ display: "flex", justifyContent: "space-between" }}>
-						<div>
-							<a
-								rel='noopener noreferrer'
-								href='#'
-								className='flex justify-center space-x-3 md:justify-start'>
-								<span className='self-center text-2xl font-semibold'>
-									<div className='header-logo'>
-										<NavLink to='/' href='#'>
-											<img
-												src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png'
-												alt=''
-											/>
-										</NavLink>
-									</div>
-								</span>
-							</a>
+					<div
+						className='grid grid-cols-12 p-2'
+						style={{ display: "flex", justifyContent: "space-around" }}>
+						<div className='col-span-8 pb-6 col-span-full md:pb-0 md:col-span-6'>
+							<img
+								src='https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png'
+								alt=''></img>
 						</div>
-						<div>
-							<p className='pb-1 text-lg font-medium text-center'>Partner</p>
-							<div className='grid grid-cols-3 gap-5'>
+						<div className='col-span-4 text-center md:text-left md:col-span-3'>
+							<p className='pb-1 text-lg font-medium'>Partner</p>
+							<div className='grid grid-cols-3 gap-4'>
 								{heThongRapChieu.map((htr, index) => {
 									return (
 										<div

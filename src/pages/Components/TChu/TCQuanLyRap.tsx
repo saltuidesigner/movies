@@ -15,7 +15,6 @@ export const TCQuanLyRap = (props: Props) => {
 	);
 	const { TabPane } = Tabs;
 	const [tabPosition, setTabPosition] = useState<TabPosition>("left");
-	console.log(arrHeThongRap);
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
